@@ -11,6 +11,11 @@ import static junit.framework.Assert.assertTrue;
 public class Iteration1Test {
 
     @Test
+    public void test() {
+        Iteration1.run();
+    }
+
+    @Test
     public void testRun() {
         DataAPI input = (new RemoteInputAPI()).getInputData();
         assertNotNull(input);
