@@ -2,7 +2,7 @@ package com.gof.iteration1;
 
 import com.gof.customer.RemoteOutputAPI;
 
-public class RemoteOutputAPISingleton {
+public final class RemoteOutputAPISingleton {
 
     private static RemoteOutputAPI instance = null;
 
