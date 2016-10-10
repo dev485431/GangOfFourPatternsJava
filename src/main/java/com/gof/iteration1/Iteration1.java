@@ -2,14 +2,14 @@ package com.gof.iteration1;
 
 import com.gof.customer.RemoteInputAPI;
 import com.gof.customer.RemoteOutputAPI;
+import com.gof.customer.core.DataAPI;
 
 public class Iteration1 {
 
-    private static final RemoteInputAPI RM_IN = new RemoteInputAPI();
-    private static final RemoteOutputAPI RM_OUT = new RemoteOutputAPI();
-
     public static void run() {
-
+        DataAPI input = (new RemoteInputAPI()).getInputData();
+        RemoteOutputAPI output = RemoteOutputAPISingleton.getInstance();
+        output.setOutputData(input);
     }
 
 }
