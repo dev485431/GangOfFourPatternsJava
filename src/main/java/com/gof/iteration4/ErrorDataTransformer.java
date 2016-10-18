@@ -6,6 +6,6 @@ public class ErrorDataTransformer implements DataTransformer {
 
     @Override
     public String transform(String s) {
-        return s.replaceAll(REPLACE_FROM, REPLACE_TO);
+        return s.replace(REPLACE_FROM, REPLACE_TO);
     }
 }
