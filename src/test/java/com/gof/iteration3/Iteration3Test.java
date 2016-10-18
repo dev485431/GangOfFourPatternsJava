@@ -12,7 +12,7 @@ import static junit.framework.Assert.assertTrue;
 public class Iteration3Test {
 
     @Test
-    public void test() {
+    public void run() {
         Iteration3.run();
     }
 

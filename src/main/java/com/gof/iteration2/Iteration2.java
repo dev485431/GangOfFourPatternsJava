@@ -10,7 +10,7 @@ public class Iteration2 {
     public static void run() {
 
         Channel1 dataSource = new Channel1();
-        List<DataAPI> inputData = dataSource.getDataAPI();
+        List<DataAPI> data = dataSource.getDataAPI();
 
         DataHandler liveDataHandler = new LiveDataHandler();
         DataHandler preparedDataHandler = new PreparedDataHandler();
@@ -21,7 +21,7 @@ public class Iteration2 {
         preparedDataHandler.setNextDataHandler(fakeDataHandler);
         fakeDataHandler.setNextDataHandler(errorDataHandler);
 
-        for (DataAPI dataAPI : inputData) {
+        for (DataAPI dataAPI : data) {
             liveDataHandler.handleData(dataAPI);
             System.out.println("Type of data: " + dataAPI.getTypeOfData() + " , DataFX: " +
                     dataAPI.getDataFX());

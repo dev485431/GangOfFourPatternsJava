@@ -11,7 +11,7 @@ import static junit.framework.Assert.assertTrue;
 public class Iteration1Test {
 
     @Test
-    public void test() {
+    public void run() {
         Iteration1.run();
     }
 

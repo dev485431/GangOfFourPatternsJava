@@ -5,7 +5,7 @@ import org.junit.Test;
 public class Iteration4Test {
 
     @Test
-    public void testRun() {
+    public void run() {
         Iteration4.run();
     }
 }
