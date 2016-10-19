@@ -1,8 +1,14 @@
 package com.gof.iteration4;
 
-public class PreparedDataTransformer implements DataTransformer {
+import com.gof.customer.data.TypeOfData;
+
+public class PreparedDataTransformer extends AbstractDataTransformer {
     private static final String REPLACE_FROM = "0";
     private static final String REPLACE_TO = "358";
+
+    public PreparedDataTransformer(TypeOfData typeOfData) {
+        super(typeOfData);
+    }
 
     @Override
     public String transform(String s) {

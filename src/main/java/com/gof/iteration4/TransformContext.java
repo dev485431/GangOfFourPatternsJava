@@ -6,34 +6,39 @@ import com.gof.customer.data.TypeOfData;
 public class TransformContext {
 
     private static final String EXCEPTION_WRONG_DATA_TYPE = "Unknown TypeOfData";
-    private DataTransformer dataTransformer;
+    private AbstractDataTransformer dataTransformer;
 
     public void doTransform(DataAPI api) {
         dataTransformer = chooseStrategy(api.getTypeOfData());
         api.setDataFX(dataTransformer.transform(api.getDataMX() + api.getDataSX() + api.getDataBX() + api.getDataFX()));
     }
 
-    private DataTransformer chooseStrategy(TypeOfData typeOfData) {
-        DataTransformer dataTransformer;
+    private AbstractDataTransformer chooseStrategy(TypeOfData typeOfData) {
+        AbstractDataTransformer dataTransformer;
         switch (typeOfData) {
             case LIVE:
-                dataTransformer = new LiveDataTransformer();
+                dataTransformer = new LiveDataTransformer(typeOfData);
                 break;
 
             case PREPARED:
-                dataTransformer = new PreparedDataTransformer();
+                dataTransformer = new PreparedDataTransformer(typeOfData);
                 break;
 
             case FAKE:
-                dataTransformer = new FakeDataTransformer();
+                dataTransformer = new FakeDataTransformer(typeOfData);
                 break;
 
             case ERR:
-                dataTransformer = new ErrorDataTransformer();
+                dataTransformer = new ErrorDataTransformer(typeOfData);
                 break;
             default:
                 throw new IllegalArgumentException(EXCEPTION_WRONG_DATA_TYPE);
         }
         return dataTransformer;
     }
+
+    public AbstractDataTransformer getDataTransformer() {
+        return dataTransformer;
+    }
+
 }

@@ -1,8 +1,14 @@
 package com.gof.iteration4;
 
-public class ErrorDataTransformer implements DataTransformer {
+import com.gof.customer.data.TypeOfData;
+
+public class ErrorDataTransformer extends AbstractDataTransformer {
     private static final String REPLACE_FROM = "0";
     private static final String REPLACE_TO = "ER";
+
+    public ErrorDataTransformer(TypeOfData typeOfData) {
+        super(typeOfData);
+    }
 
     @Override
     public String transform(String s) {
