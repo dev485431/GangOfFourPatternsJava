@@ -23,14 +23,13 @@ public class Iteration3Test {
         List<DataAPI> data = dataSource.getDataAPI();
         assertNotNull(data);
 
-        data.forEach(api -> api.setResultX(api.getDataFX() + api.getDataMX() + api.getDataSX() + api
-                .getDataBX()));
-
-        data.forEach(api -> assertTrue((api.getDataFX() + api.getDataMX() + api.getDataSX() + api
-                .getDataBX()).equals(api.getResultX())));
+        data.forEach(api -> {
+            api.setResultX(api.getDataFX() + api.getDataMX() + api.getDataSX() + api.getDataBX());
+            assertTrue((api.getDataFX() + api.getDataMX() + api.getDataSX() + api.getDataBX())
+                    .equals(api.getResultX()));
+        });
 
         DataAPISequence dataAPISequence = new DataAPIAdapter(data);
-
         assertTrue(data.size() == dataAPISequence.countAPIs());
 
         for (int i = 0; i < data.size(); i++) {

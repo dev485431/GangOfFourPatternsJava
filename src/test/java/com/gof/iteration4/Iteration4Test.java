@@ -26,11 +26,11 @@ public class Iteration4Test {
         TransformContext transformContext = new TransformContext();
         RemoteOutputAPI remoteOutputAPI = new RemoteOutputAPI();
 
-        for (DataAPI api : data) {
+        data.forEach(api -> {
             transformContext.doTransform(api);
             assertTrue(api.getTypeOfData() == transformContext.getDataTransformer().getTypeOfData());
             remoteOutputAPI.setOutputData(api);
-        }
+        });
     }
 
 }
