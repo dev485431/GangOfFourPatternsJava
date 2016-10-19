@@ -10,7 +10,7 @@ public class TransformContext {
 
     public void doTransform(DataAPI api) {
         dataTransformer = chooseStrategy(api.getTypeOfData());
-        api.setDataFX(dataTransformer.transform(api.getDataMX() + api.getDataSX() + api.getDataBX() + api.getDataFX()));
+        api.setDataFX(dataTransformer.transform(getInputString(api)));
     }
 
     private AbstractDataTransformer chooseStrategy(TypeOfData typeOfData) {
@@ -35,6 +35,10 @@ public class TransformContext {
                 throw new IllegalArgumentException(EXCEPTION_WRONG_DATA_TYPE);
         }
         return dataTransformer;
+    }
+
+    public String getInputString(DataAPI api) {
+        return api.getDataMX() + api.getDataSX() + api.getDataBX() + api.getDataFX();
     }
 
     public AbstractDataTransformer getDataTransformer() {

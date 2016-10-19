@@ -15,7 +15,12 @@ public class Iteration4 {
         TransformContext transformContext = new TransformContext();
 
         for (DataAPI api : data) {
+            System.out.println("Received object with TypeOfData" + api.getTypeOfData());
+            System.out.println("Before transformation: " + transformContext.getInputString(api));
             transformContext.doTransform(api);
+            System.out.println("Using transformer for TypeOfData: " + transformContext.getDataTransformer()
+                    .getTypeOfData());
+            System.out.println("After transformation: " + api.getDataFX());
             remoteOutputAPI.setOutputData(api);
         }
 
