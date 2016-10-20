@@ -20,9 +20,9 @@ public class Iteration6 {
         observers.add(new MonitorUS());
 
         RemoteOutputAPIAcronisObserver acronisObserver = new RemoteOutputAPIAcronisObserver();
-        observers.forEach(o -> acronisObserver.addObserver(o));
+        observers.forEach(acronisObserver::addObserver);
 
-        dataAPIs.forEach(api -> acronisObserver.sendMessages(api));
+        dataAPIs.forEach(acronisObserver::sendMessages);
     }
 
 }

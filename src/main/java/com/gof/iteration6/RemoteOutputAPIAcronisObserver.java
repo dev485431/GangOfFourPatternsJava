@@ -22,22 +22,22 @@ public class RemoteOutputAPIAcronisObserver implements Observer {
         sendSX(dataAPI.getDataSX());
     }
 
-    public void sendBX(String msg) {
+    private void sendBX(String msg) {
         RemoteOutputAPIAcronis.sendBX(msg);
         notifyObservers("msgBX: " + msg);
     }
 
-    public void sendFX(String msg) {
+    private void sendFX(String msg) {
         RemoteOutputAPIAcronis.sendFX(msg);
         notifyObservers("msgFX: " + msg);
     }
 
-    public void sendMX(String msg) {
+    private void sendMX(String msg) {
         RemoteOutputAPIAcronis.sendMX(msg);
         notifyObservers("msgMX: " + msg);
     }
 
-    public void sendSX(String msg) {
+    private void sendSX(String msg) {
         RemoteOutputAPIAcronis.sendSX(msg);
         notifyObservers("msgSX: " + msg);
     }

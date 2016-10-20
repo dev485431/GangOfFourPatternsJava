@@ -36,22 +36,22 @@ public class Iteration6Test {
         initialObservers.add(monitorUK);
         initialObservers.add(monitorUS);
 
-        initialObservers.forEach(o -> acronisObserver.addObserver(o));
+        initialObservers.forEach(acronisObserver::addObserver);
         List<Monitor> actualObservers = acronisObserver.getObservers();
         assertEquals(initialObservers, actualObservers);
 
-        dataAPIs.forEach(api -> acronisObserver.sendMessages(api));
+        dataAPIs.forEach(acronisObserver::sendMessages);
 
         acronisObserver.removeObserver(monitorFR);
         acronisObserver.removeObserver(monitorSE);
         assertFalse(actualObservers.equals(initialObservers));
 
-        dataAPIs.forEach(api -> acronisObserver.sendMessages(api));
+        dataAPIs.forEach(acronisObserver::sendMessages);
 
         acronisObserver.addObserver(monitorFR);
         acronisObserver.addObserver(monitorSE);
         assertTrue(actualObservers.containsAll(initialObservers) && initialObservers.containsAll(actualObservers));
 
-        dataAPIs.forEach(api -> acronisObserver.sendMessages(api));
+        dataAPIs.forEach(acronisObserver::sendMessages);
     }
 }
