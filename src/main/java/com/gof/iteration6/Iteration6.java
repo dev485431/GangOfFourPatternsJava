@@ -2,26 +2,27 @@ package com.gof.iteration6;
 
 import com.gof.customer.core.Channel2;
 import com.gof.customer.core.DataAPI;
-import com.gof.iteration5.RemoteOutputAPIAcronisFacade;
+import com.gof.customer.monitors.*;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Iteration6 {
 
     public static void run() {
         Channel2 dataSource = new Channel2();
-        List<DataAPI> data = dataSource.getDataAPI();
-        RemoteOutputAPIAcronisFacade remoteApiFacade = new RemoteOutputAPIAcronisFacade();
+        List<DataAPI> dataAPIs = dataSource.getDataAPI();
 
-        data.forEach(api -> {
-            remoteApiFacade.start();
-            remoteApiFacade.sendData(api);
-            remoteApiFacade.stop();
+        List<Monitor> observers = new LinkedList<>();
+        observers.add(new MonitorFR());
+        observers.add(new MonitorSE());
+        observers.add(new MonitorUK());
+        observers.add(new MonitorUS());
 
-            //
-        });
+        RemoteOutputAPIAcronisObserver acronisObserver = new RemoteOutputAPIAcronisObserver();
+        observers.forEach(o -> acronisObserver.addObserver(o));
 
-
+        dataAPIs.forEach(api -> acronisObserver.sendMessages(api));
     }
 
 }
