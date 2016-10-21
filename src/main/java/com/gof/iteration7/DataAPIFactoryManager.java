@@ -1,6 +1,6 @@
 package com.gof.iteration7;
 
-public class DataAPIFactoryCreator {
+public class DataAPIFactoryManager {
 
     public enum TypeOfDateAPI {LIGHT, HEAVY}
 

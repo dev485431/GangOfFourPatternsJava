@@ -23,9 +23,9 @@ public class Iteration7Test {
     @Test
     public void testRun() {
         RemoteOutputAPITesting remoteOutputAPITesting = new RemoteOutputAPITesting();
-        AbstractDataAPIFactory lightDataAPIFactory = DataAPIFactoryCreator.getFactory(DataAPIFactoryCreator
+        AbstractDataAPIFactory lightDataAPIFactory = DataAPIFactoryManager.getFactory(DataAPIFactoryManager
                 .TypeOfDateAPI.LIGHT);
-        AbstractDataAPIFactory heavyDataAPIFactory = DataAPIFactoryCreator.getFactory(DataAPIFactoryCreator
+        AbstractDataAPIFactory heavyDataAPIFactory = DataAPIFactoryManager.getFactory(DataAPIFactoryManager
                 .TypeOfDateAPI.HEAVY);
 
         assertNotNull(lightDataAPIFactory);
