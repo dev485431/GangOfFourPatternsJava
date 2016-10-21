@@ -1,19 +1,29 @@
 package com.gof.iteration8;
 
-import com.gof.customer.core.DataAPI;
+public class DataCBuilder extends DataAPIBuilder {
 
-import static com.gof.iteration8.RandomUtils.ALPHABET;
-import static com.gof.iteration8.RandomUtils.NUMBERS;
-
-public class DataCBuilder implements DataAPIBuilder {
+    public void buildDataAPI(Long id) {
+        dataAPI = new DataC(id);
+    }
 
     @Override
-    public DataAPI getDataAPI(Long id) {
-        return new DataC(id,
-                RandomUtils.generateRandomString(NUMBERS),
-                RandomUtils.generateRandomString(ALPHABET),
-                RandomUtils.generateRandomString(ALPHABET),
-                RandomUtils.generateRandomString(NUMBERS));
+    public void setDataMX() {
+        dataAPI.setDataMX(generateRandomString(NUMBERS));
+    }
+
+    @Override
+    public void setDataSX() {
+        dataAPI.setDataSX(generateRandomString(ALPHABET));
+    }
+
+    @Override
+    public void setDataFX() {
+        dataAPI.setDataFX(generateRandomString(ALPHABET));
+    }
+
+    @Override
+    public void setDataBX() {
+        dataAPI.setDataBX(generateRandomString(NUMBERS));
     }
 
 }

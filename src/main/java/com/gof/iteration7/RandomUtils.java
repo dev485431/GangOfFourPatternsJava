@@ -9,7 +9,7 @@ public class RandomUtils {
 
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String NUMBERS = "0123456789";
-    private static final int MAX_LENGTH = 25;
+    private static final int MAX_LENGTH = 15;
 
 
     public static String generateRandomString(String chars) {
